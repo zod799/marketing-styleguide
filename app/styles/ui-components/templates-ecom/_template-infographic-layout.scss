@@ -1,0 +1,203 @@
+/*
+ * Infographic
+ */
+
+.#{$rf-prefix}-infographic-layout {
+  .#{$rf-prefix}-dx-templates & {
+
+    $progress-bg-color: #D9D9D9;
+    $redefine: #00BBE6;
+    $unblemish: #716FB3;
+    $reverse: #FCB131;
+    $soothe: #54B948;
+
+
+    .#{$rf-prefix}-infographic-container {
+      background-color: #fff;
+      padding: 0 24px 0;
+    }
+
+
+    .#{$rf-prefix}-regimen-results {
+      @include respond-to('large') {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+
+    .#{$rf-prefix}-regimen-result-details {
+      margin: 0.5em 0 1.5em;
+
+      @include respond-to('large') {
+        margin: 0;
+        padding-bottom: 72px;
+        width: 46%;
+      }
+
+      p {
+        margin: 0;
+        padding: 0.7em 0 0.2em 0;
+        line-height: 1.2;
+      }
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0.5em 0 0.2em 0;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .redefine-regimen h4 span,
+    .redefine-regimen h5 span {
+      color: $redefine;
+    }
+
+    .reverse-regimen h4 span,
+    .reverse-regimen h5 span {
+      color: $reverse;
+    }
+
+    .unblemish-regimen h4 span,
+    .unblemish-regimen h5 span {
+      color: $unblemish;
+    }
+
+    .soothe-regimen h4 span,
+    .soothe-regimen h5 span {
+      color: $soothe;
+    }
+
+    h5 {
+      margin: 0;
+      padding: 0.7em 0 0.4em 0;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    
+
+    @-webkit-keyframes animate-progress {
+      100% {
+        background-position: -100px 0px;
+      }
+    }
+
+    @keyframes animate-progress {
+      100% {
+        background-position: -100px 0px;
+      }
+    }
+
+    progress {
+      position: relative;
+      width: 88%;
+      height: 14px;
+      background-color: $progress-bg-color;
+      @include border-radius(0);
+      box-shadow: none;
+    }
+
+    progress[value] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      appearance: none;
+    }
+
+    .redefine-regimen progress[value] {
+      color: $redefine;
+    }
+
+    .reverse-regimen progress[value] {
+      color: $reverse;
+    }
+
+    .unblemish-regimen progress[value] {
+      color: $unblemish;
+    }
+
+    .soothe-regimen progress[value] {
+      color: $soothe;
+    }
+
+    progress::-ms-fill {
+      border: none;
+    }
+
+    p[data-label] {
+      position: relative;
+      width: 88%;
+    }
+
+    p[data-label]::before {
+      display: block;
+      content: attr(data-label);
+      height: 25px;
+      position: absolute;
+      right: -35px;
+      margin: 0;
+      bottom: -20px;
+      line-height: 25px;
+      font-size: .875em;
+      color: #414141;
+    }
+
+    progress[value]::-webkit-progress-bar {
+      background-color: $progress-bg-color;
+      box-shadow: none;
+      @include border-radius(0);
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+
+    .redefine-regimen progress[value]::-webkit-progress-value {
+      background-color: $redefine;
+    }
+
+    .reverse-regimen progress[value]::-webkit-progress-value {
+      background-color: $reverse;
+    }
+
+    .unblemish-regimen progress[value]::-webkit-progress-value {
+      background-color: $unblemish;
+    }
+
+    .soothe-regimen progress[value]::-webkit-progress-value {
+      background-color: $soothe;
+    }
+
+    .redefine-regimen progress[value]::-moz-progress-bar {
+      background-color: $redefine;
+      @include border-radius(0);
+      box-shadow: none;
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+
+    .reverse-regimen progress[value]::-moz-progress-bar {
+      background-color: $reverse;
+      @include border-radius(0);
+      box-shadow: none;
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+
+    .unblemish-regimen progress[value]::-moz-progress-bar {
+      background-color: $unblemish;
+      @include border-radius(0);
+      box-shadow: none;
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+
+    .soothe-regimen progress[value]::-moz-progress-bar {
+      background-color: $soothe;
+      @include border-radius(0);
+      box-shadow: none;
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+  }
+}

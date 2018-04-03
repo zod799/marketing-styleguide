@@ -1,0 +1,209 @@
+/* TYPOGRAPHY VARIABLES AND MIXINS */
+
+/* Font stacks */
+$font-stack: "HCo Gotham SSm", Helvetica, sans-serif;
+$bodini-roman: 'BauerBodoniLT-Roman', serif;
+$bodini-italic: 'BauerBodoniLT-Italic', serif;
+
+/* Branding colour */
+$font-color: #222;
+$link-color: #006eb3;
+$link-color-hover: #004C7B;
+$link-nav-color-hover: #00BBE6;
+
+/* Font size specs */
+$font-size: 1em;
+$font-size-adjust: 0.5;
+$line-height: 1.5;
+$body-font-weight: 300;
+
+
+/* Text sizing variable for mixin use */
+$text-sizing: (
+  'heading1': (
+    'small': (
+      'font-size': 1.125em,
+      'line-height': 1.5,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'medium': (
+      'font-size': 1.75em,
+      'line-height': 2.25,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'large': (
+      'font-size': 1em,
+      'line-height': 2,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'wide': (
+      'font-size': 1.75em,
+      'line-height': 2.25,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'xwide': (
+      'font-size': 1.75em,
+      'line-height': 2.25,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      )
+    ),
+  'heading2': (
+    'small': (
+      'font-size': 0.875em,
+      'line-height': 1.25,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'medium': (
+      'font-size': 1.125em,
+      'line-height': 1.625,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'large': (
+      'font-size': 0.875em,
+      'line-height': 0.875,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'wide': (
+      'font-size': 1.125em,
+      'line-height': 1.625,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      ),
+    'xwide': (
+      'font-size': 1.125em,
+      'line-height': 1.625,
+      'text-transform': uppercase,
+      'font-weight': 400,
+      'letter-spacing': 2px
+      )
+    ),
+  'paragraph': (
+    'small': (
+      'font-size': 0.875em,
+      'line-height': 1.5,
+      'font-weight': 200,
+      'letter-spacing': 0
+      ),
+    'medium': (
+      'font-size': 0.875em,
+      'line-height': 1.6,
+      'font-weight': 200,
+      'letter-spacing': 0.5px
+      ),
+    'large': (
+      'font-size': 0.875em,
+      'line-height': 1.6,
+      'font-weight': 200,
+      'letter-spacing': 0.5px
+      ),
+    'wide': (
+      'font-size': 0.875em,
+      'line-height': 1.6,
+      'font-weight': 200,
+      'letter-spacing': 0.5px
+      ),
+    'xwide': (
+      'font-size': 0.875em,
+      'line-height': 1.625,
+      'font-weight': 200,
+      'letter-spacing': 0.5px
+      )
+    )
+  );
+
+
+// TYPOGRAPHY MIXINS AND FUNCTIONS
+@function breakpoint($breakpoint-name) {
+  $breakpoint-value: map-get($breakpoints, $breakpoint-name);
+
+  @if $breakpoint-value {
+    @return $breakpoint-value;
+  }
+
+  @warn "Breakpoint '#{$breakpoint-name}' not found in $breakpoints";
+}
+
+// lib/functions/_typography.scss
+@function text-breakpoints-for($text-size) {
+  $text-breakpoints: map-get($text-sizing, $text-size);
+
+  @if $text-breakpoints {
+    @return $text-breakpoints;
+  }
+
+  @warn "Text size '#{$text-size}' not found in $text-sizing";
+}
+
+@function text-properties-for($text-size, $breakpoint-name) {
+  $text-breakpoints: text-breakpoints-for($text-size);
+  $text-properties: map-get($text-breakpoints, $breakpoint-name);
+
+  @if $text-properties {
+    @return $text-properties;
+  }
+
+  @warn "Breakpoint '#{$breakpoint-name}' for text size '#{$text-size}' was not found";
+}
+
+// responsive breakpoints
+@mixin respond-above($breakpoint-name) {
+  $breakpoint-value: breakpoint($breakpoint-name);
+
+  @if $breakpoint-value {
+    @media screen and (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+}
+
+// set text properties
+@mixin text-size($text-size, $breakpoint-name: 'small') {
+  $text-size-properties: text-properties-for($text-size, $breakpoint-name);
+
+  @if $text-size-properties {
+    font-size: map-get($text-size-properties, 'font-size');
+    line-height: map-get($text-size-properties, 'line-height');
+    text-transform: map-get($text-size-properties, 'text-transform');
+    font-weight: map-get($text-size-properties, 'font-weight');
+    letter-spacing: map-get($text-size-properties, 'letter-spacing');
+  }
+}
+
+@mixin responsive-text-size($text-size, $default-breakpoint: 'small') {
+  @include text-size($text-size, $default-breakpoint);
+
+  $text-breakpoints-map: text-breakpoints-for($text-size);
+  $text-breakpoints-keys: map-keys($text-breakpoints-map);
+
+  @each $breakpoint-name in $text-breakpoints-keys {
+    @if $breakpoint-name != $default-breakpoint {
+      @include respond-above($breakpoint-name) {
+        @include text-size($text-size, $breakpoint-name);
+      }
+    }
+  }
+}
+
+/* paragraph font scaling */
+@mixin p-font-size-em($font-size, $line-height, $font-weight) {    
+  font-size : $font-size * 1em;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}

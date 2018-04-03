@@ -1,0 +1,56 @@
+/*
+ * Centered Text layout
+ */
+
+.#{$rf-prefix}-banner-module {
+  .#{$rf-prefix}-dx-templates & {
+
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .#{$rf-prefix}-content-box {
+      padding: 24px;
+
+      @include respond-to('large') {
+        width: 45%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        padding: 0 0 0 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @include respond-to-mobile('large') {
+        .#{$rf-prefix}-text-color{
+          color: #414142 !important;
+        }
+      }
+    }
+
+
+
+    &.#{$rf-prefix}-banner-text-right {
+      .#{$rf-prefix}-content-box {
+        @include respond-to('large') {
+          right: 0;
+          left: auto;
+          padding: 0 24px 0 0;
+        }
+
+        @include respond-to-mobile('large') {
+          .#{$rf-prefix}-text-color{
+            color: #414142 !important;
+          }
+        }
+      }
+    }
+
+  }
+}

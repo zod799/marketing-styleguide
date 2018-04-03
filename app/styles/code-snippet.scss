@@ -1,0 +1,14 @@
+/* Code Snippet CSS code 
+ *  1. Change the '@import' to the files you need minimized
+ *  2. copy minimized css into code snippet
+ */
+
+// Utilities
+@import 'utilities/variables';
+@import 'utilities/mixins';
+@import 'utilities/typography';
+@import 'utilities/animations';
+
+//File to minimize
+@import 'ui-components/buttons';
+@import 'ui-components/templates-ecom';

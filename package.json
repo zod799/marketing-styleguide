@@ -1,0 +1,46 @@
+{
+  "name": "DigitalMarketingTemplates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "publish": "npm run build && s3cmd --access_key=AKIAJ4YJXMWJQYPGP7MA --secret_key=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 sync dist/* s3://rfclarity  && echo '🚀  Deployed!'"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "clipboard": "^1.7.1",
+    "css-loader": "^0.28.5",
+    "eslint": "^4.7.2",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "highlight.js": "^9.12.0",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "markdown-it": "^8.4.0",
+    "markdown-it-loader": "^0.6.0",
+    "node-normalize-scss": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "progress-bar-webpack-plugin": "^1.10.0",
+    "resolve-url-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {}
+}

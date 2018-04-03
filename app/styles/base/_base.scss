@@ -1,0 +1,29 @@
+/*-------------------*
+ * BASE GLOBAL STYLES
+ *-------------------*/
+body {
+  margin: 0;
+}
+
+/* Headings */
+h1 {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  @include responsive-text-size('heading1');
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  @include responsive-text-size('heading2');
+}
+
+/* Copy */
+p {
+  @include responsive-text-size('paragraph');
+}
+
+/* Utilities Classes */
+

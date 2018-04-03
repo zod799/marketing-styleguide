@@ -1,0 +1,173 @@
+$default-font-size: 16px;
+$default-line-height: 1.2;
+$default-padding: 0 0 16px 0;
+
+@import 'templates-ecom/template-3-column-module';
+@import 'templates-ecom/template-4-column-module';
+@import 'templates-ecom/template-2-column-layout';
+@import 'templates-ecom/template-infographic-layout';
+@import 'templates-ecom/template-blockquote-layout';
+@import 'templates-ecom/template-video-layout';
+@import 'templates-ecom/template-centeredtext-layout';
+@import 'templates-ecom/template-offset-layout';
+@import 'templates-ecom/template-banner-layout';
+
+/* Template wrapper */
+.#{$rf-prefix}-dx-templates {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0;
+  font: normal normal normal $default-font-size $font-stack;
+  line-height: $default-line-height;
+  //set font defaults incase browser defaults are overridden elsewhere up the DOM tree
+
+  p {
+    padding: $default-padding;
+  }
+
+  // TEXT STYLES
+  .#{$rf-prefix}-main-title, .#{$rf-prefix}-secondary-title, .#{$rf-prefix}-subtitle, .#{$rf-prefix}-pretext {
+    margin: 0;
+    padding: $default-padding;
+    line-height: 1.2;
+    font: normal normal normal $default-font-size $font-stack;
+  }
+
+  .#{$rf-prefix}-text-lower {
+    text-transform: lowercase !important;
+  }
+
+  .#{$rf-prefix}-text-capitalize {
+    text-transform: capitalize !important;
+  }
+
+  .#{$rf-prefix}-text-center {
+    text-align: center;
+  }
+
+  .#{$rf-prefix}-text-color {
+    color: #6faac1;
+  }
+
+  .#{$rf-prefix}-background-color {
+    background-color: #f1f6f8 !important;
+  }
+
+  .#{$rf-prefix}-custom-list {
+    list-style: none;
+    padding-left: 1.2em;
+
+    li {
+      position: relative;
+    }
+
+    li:before {
+      content: "\0002A";
+      position: absolute;
+      font-size: 2em;
+      height: .5em;
+      line-height: 1em;
+      top: 50%;
+      left: -0.65em;
+      transform: translateY(-50%);
+    }
+  }
+
+  .#{$rf-prefix}-main-title-default {
+    font: normal normal normal 1.875em 'BauerBodoniLT-Roman', serif; //30px size
+    text-transform: uppercase;
+
+    @include respond-to('large') {
+      font-size: 2.5em; //40px
+    }
+  }
+  .#{$rf-prefix}-main-title-v2 {
+    font: normal normal normal 2.5em 'BauerBodoniLT-Roman', serif; //40px size
+    text-transform: uppercase;
+
+    @include respond-to('large') {
+      font-size: 5.5em; //88px
+    }
+  }
+  .#{$rf-prefix}-secondary-title-default {
+    font: normal normal normal 1.875em 'BauerBodoniLT-Roman', serif;
+    text-transform: uppercase;
+  }
+  .#{$rf-prefix}-secondary-title-v2 {
+    font: normal normal normal 1.875em 'BauerBodoniLT-Roman', serif;
+
+    @include respond-to('large') {
+      font-size: 3.875em;
+      text-transform: uppercase;
+    }
+    
+  }
+  .#{$rf-prefix}-subtitle-default {
+    font-weight: 400;
+    font-size: 1.125em; //18px
+    text-transform: uppercase;
+  }
+  .#{$rf-prefix}-subtitle-v2 {
+    font-weight: 400;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .#{$rf-prefix}-pretext-default {
+    font-weight: 200;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  .#{$rf-prefix}-pretext-v2 {
+    font-weight: 400;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .#{$rf-prefix}-paragraph {
+    margin: 0;
+    font-weight: 200;
+    font-size: 1em; //16px
+    line-height: 1.75;
+    padding: $default-padding;
+  }
+  .#{$rf-prefix}-paragraph-sm {
+    margin: 0;
+    font-weight: 200;
+    font-size: 0.875em; //14px
+    line-height: 1.71; //23.94px
+    padding: $default-padding;
+  }
+  .#{$rf-prefix}-Quote {
+    margin: 0;
+    padding: 0;
+    font: italic normal normal 1.5em/1.5 'BauerBodoniLT-Italic', serif;
+  }
+  .#{$rf-prefix}-accordian-title {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+    font-size: 0.875em; //14px
+    line-height: 1.71;
+    text-transform: uppercase;
+  }
+  .#{$rf-prefix}-fine-print {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+    font-size: 0.75em; //12px
+    line-height: 1.7; //20.4px
+    padding: $default-padding;
+  }
+
+  .#{$rf-prefix}-fine-print-v2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+    font-size: 0.5625em; //9px
+    line-height: 1.7;
+    padding: $default-padding;
+  }
+
+}

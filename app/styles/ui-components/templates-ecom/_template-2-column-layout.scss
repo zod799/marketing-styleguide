@@ -1,0 +1,157 @@
+/* 
+ * 2 column layout
+ * Desktop: Image is on the right by default, content is on the right
+ *          Add class .image-left to reverse image and content
+ * Mobile: Stacking image -> content
+ */
+
+.#{$rf-prefix}-2-column-layout {
+  .#{$rf-prefix}-dx-templates & {
+
+    @include clearfix;
+
+    @include respond-to('large') {
+      width: 100%;
+    }
+
+    .row {
+      display: block;
+      margin: 0;
+
+      @include respond-to('large') {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+
+    .col {
+      width: 100%;
+      margin: 0;
+      position: relative;
+
+      @include respond-to('large') {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+
+      &:last-of-type {
+        @include respond-to('large') {
+          padding-right: 2%;
+        }
+      }
+
+      .#{$rf-prefix}-2col-footer {
+        @include respond-to('large') {
+          position: absolute;
+          bottom: 24px;
+        }
+      }
+
+      .content-container {
+        padding: 24px;
+
+        @include respond-to('large') {
+          width: 100%;
+          padding: 0 10%;
+        }
+      }
+
+      .column-image {
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      .list-item {
+        margin: 0 5% 36px 8%;
+        padding-top: 36px;
+        position: relative;
+
+        &:first-of-type {
+          margin-top: 16px;
+        }
+
+        &:before {
+          content: "\0002A";
+          font-size: 40px;
+          position: absolute;
+          line-height: 0.9em;
+          top: -10px;
+          left: -10%;
+          display: block;
+          height: 20px;
+          width: 20px;
+          text-align: center;
+        }
+
+        &:after {
+          content: "";
+          background: #AEAEAF;
+          height: 1px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+
+          @include respond-to('large') {
+            width: 70%;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+
+
+      img { // TODO: serve retina images
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+
+        @include respond-to('large') {
+          max-width: 100%;
+          margin: 0;
+        }
+      }
+
+
+    }
+
+
+
+    &.image-left {
+      .row {
+
+        @include respond-to('large') {
+          flex-direction: row;
+        }
+
+        .col {
+          &:last-of-type {
+            padding-right: 0;
+            padding-left: 2%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 2 Column Layout w/ accordian and products
+.#{$rf-prefix}-2-column-products {
+  .#{$rf-prefix}-dx-templates & {
+    .col {
+      @include respond-to('large') {
+        width: 49%;
+      }
+    }
+  }
+}
+

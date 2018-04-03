@@ -1,0 +1,23 @@
+/* GLOBAL TYPOGRAPHY TREATMENTS */
+// h1 - h6, p, etc should have defaults set here
+
+html {
+  font-family: $font-stack !important;
+  font-weight: $body-font-weight !important;
+  color: $font-color;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: $font-size !important;
+  font-style: normal;
+}
+
+body {
+  font-family: $font-stack !important;
+  font-size: $font-size !important;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: $link-color; cursor: pointer; }
+a:hover, a:active, a:visited { color: $link-color-hover; text-decoration: underline; }

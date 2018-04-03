@@ -1,0 +1,19 @@
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/fonts';
+@import 'utilities/typography';
+@import 'utilities/animations';
+
+//Base Global Styles
+@import 'base/iconStyle';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/animations';
+
+//Layout Styles
+@import 'layout/header';
+@import 'layout/main';
+
+//Page Specific Styles
+@import 'pages/_index.scss';

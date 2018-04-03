@@ -1,0 +1,16 @@
+/*
+ * 4 column layout
+ * Desktop: 4 Columns
+ * Mobile: @768px, 4 columns are stacked in accordion
+ */
+
+.#{$rf-prefix}-4-column {
+  .#{$rf-prefix}-dx-templates & {
+
+    .col {
+      @include respond-to('large') {
+        width: 24%;
+      }
+    }
+  }
+}

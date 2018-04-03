@@ -1,0 +1,225 @@
+/*
+ * 3 column layout
+ * Desktop: 3 Columns
+ * Mobile: @768px, 3 columns are stacked in accordion
+ */
+
+.#{$rf-prefix}-3-column-accordion {
+  .#{$rf-prefix}-dx-templates & {
+
+    @include clearfix;
+
+    margin: 0;
+
+    &.#{$rf-prefix}-3-column-background {
+      @include respond-to('large') {
+        padding: 24px;
+      }
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:not(:checked)~.heading-img {
+        background-color: #fff;
+        height: 80px;
+
+        @include respond-to('large') {
+          background-color: transparent;
+          height: auto;
+        }
+      }
+    }
+
+    .#{$rf-prefix}-3-column-accordion-checkbox {
+      display: none;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+
+      @include respond-to('large') {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .col {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      text-align: left;
+      border-top: 1px solid #979797;
+
+      @include respond-to('large') {
+        width: 32%;
+        border: 0;
+      }
+
+      .heading-img {
+        img {
+          max-width: 100%;
+          margin: 0 auto;
+          display: none;
+
+          @include respond-to('large') {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+            display: block;
+          }
+        }
+
+        .#{$rf-prefix}-subtitle {
+          line-height: 1.5;
+          padding-left: 24px;
+          font-weight: 200;
+          font-size: .875em;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+
+          @include respond-to('xsmall') {
+            padding: 0 100px 0 10px;
+          }
+
+          @include respond-to('large') {
+            line-height:inherit;
+            padding: 36px 24px 16px;
+            font-weight: inherit;
+            font-size: inherit;
+            top: inherit;
+            transform: none;
+          }
+        }
+      }
+
+      .column-content {
+        display: none;
+
+        @include respond-to('large') {
+          display: block;
+
+          .rf-subtitle, .rf-paragraph-sm {
+            padding: 0 24px;
+          }
+        }
+
+      }
+
+      .#{$rf-prefix}-3-column-accordion-label {
+        width: 100%;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 0;  
+
+        @include respond-to('large') {
+          display: none;
+        }
+
+        // OPEN CLOSE ICON STYLES
+        .#{$rf-prefix}-open-close-control {
+          position: absolute;
+          top: 40px;
+          right: 1.1em;
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          border: 0 !important;
+          cursor: pointer;
+          transform: translateY(-50%);
+          z-index: 2;
+
+          @include respond-to('large') {
+            display: none;
+          }
+        }
+
+        .#{$rf-prefix}-open-close-control::before,
+        .#{$rf-prefix}-open-close-control::after {
+          content: '';
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          top: 50%;
+          left: 0;
+          margin-top: -1px;
+          background: #444;
+          transition: opacity 0.55s ease-out 150ms, -webkit-transform 0.25s ease-in-out;
+          transition: transform 0.25s ease-in-out, opacity 0.55s ease-out 150ms;
+          transition: transform 0.25s ease-in-out, opacity 0.55s ease-out 150ms, -webkit-transform 0.25s ease-in-out;
+        }
+
+        .#{$rf-prefix}-open-close-control::before {
+          transform: rotate(0deg);
+        }
+
+        .#{$rf-prefix}-open-close-control::after {
+          transform: rotate(90deg);
+        }
+      }
+
+      // ACCORDIAN EXPAND STYLES
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.#{$rf-prefix}-3-column-accordion-label .#{$rf-prefix}-open-close-control::before,
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.#{$rf-prefix}-3-column-accordion-label .#{$rf-prefix}-open-close-control::after {
+        background: #444;
+        transition: opacity 0.55s ease-out 150ms, -webkit-transform 0.25s ease-in-out;
+        transition: transform 0.25s ease-in-out, opacity 0.55s ease-out 150ms;
+        transition: transform 0.25s ease-in-out, opacity 0.55s ease-out 150ms, -webkit-transform 0.25s ease-in-out;
+      }
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.#{$rf-prefix}-3-column-accordion-label .#{$rf-prefix}-open-close-control::before {
+        transform: rotate(45deg);
+      }
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.#{$rf-prefix}-3-column-accordion-label .#{$rf-prefix}-open-close-control::after {
+        transform: rotate(-45deg);
+      }
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.heading-img .#{$rf-prefix}-subtitle {
+        line-height: inherit;
+        padding: 36px 0 16px;
+        font-weight: inherit;
+        font-size: inherit;
+        top: inherit;
+        transform: none;
+
+        @include respond-to('large') {
+          padding: 36px 24px 16px;
+        }
+      }
+
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.heading-img img,
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.column-content {
+        display: block;
+      }
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.heading-img {
+        transition: 0.15s all ease;
+        padding: 72 24px 0;
+
+        @include respond-to('large'){
+          transition: none;
+          padding: 0;
+        }
+      }
+
+
+      .#{$rf-prefix}-3-column-accordion-checkbox:checked~.column-content {
+        transition: 0.15s all ease;
+        padding: 0 24px 72px;
+
+        @include respond-to('large'){
+          transition: none;
+          padding: 0;
+        }
+      }
+
+      
+    }
+  }
+}

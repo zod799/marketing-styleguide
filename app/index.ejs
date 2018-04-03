@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- extra Head options -->
+  <%= require('./partials/head.html') %>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Global Header:
+        Propably doesn't need to change accross pages
+     -->
+    <%= require('./partials/header.html') %>
+
+    <!-- Start Main Content: individual to each pages main content -->
+    <%= require('./partials/pages/index-main.html') %>
+    <!-- End Main Content -->
+
+    <!-- Global Footer -->
+    <%= require('./partials/footer.html') %>
+  </div>
+
+  <!-- Loading clipboard via npm fails due to error with Clipboard namespace conflict with Chrome
+      https://github.com/zenorocha/clipboard.js/issues/468
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+</body>
+</html>

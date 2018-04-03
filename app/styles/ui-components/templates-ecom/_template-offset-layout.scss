@@ -1,0 +1,38 @@
+/*
+ * Offset Textbox layout
+ */
+
+.#{$rf-prefix}-offset-module {
+  .#{$rf-prefix}-dx-templates & {
+    position: relative;
+
+
+    .rf-offset-image {
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .rf-offset-box {
+      width: 100%;
+      height: auto;
+      padding: 36px 20px 72px;
+      background-color: #f7f7f7;
+
+      @include respond-to('large') {
+        width: 41.11%;
+        position: absolute;
+        right: 0;
+        bottom: -5%;
+        padding: 5%;
+        z-index: 2;
+      }
+      
+    }
+
+
+  }
+}
