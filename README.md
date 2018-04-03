@@ -1,5 +1,5 @@
 # marketing-styleguide
-A style guild I built with Webpack 3, HTML5, CSS3, vanilla Javascript
+This is a multi-paged style guild I built with Webpack 3, HTML5, CSS3, vanilla Javascript. The original guide was built with Gulp, but I was requested to refactor the code to work with Webpack 3, simplify the design, as well as add new components for the marketing team. The requirement was for a team member with little to no coding experience to be able to pull out components and build pages for use on 2 different e-commerce platforms. 
 
 ## Overview ##
 
