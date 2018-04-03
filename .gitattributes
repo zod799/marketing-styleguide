@@ -9,7 +9,10 @@
 # Note that binary is a macro for -text -diff.
 ######################################################################
 
+## IGNORE
+##   These will be ingnored in the language statistics
 app/styles/* linguist-vendored
+app/scripts/libs/* linguist-vendored
 
 ## AUTO-DETECT
 ##   Handle line endings automatically for files detected as
